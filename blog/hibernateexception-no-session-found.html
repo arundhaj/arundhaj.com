@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>HibernateException No Session found for current thread &mdash; arundhaj</title>
+  <meta name="author" content="ArunDhaJ">
+  <meta name="description" content="HibernateException No Session found for current thread" />
+
+
+
+
+
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link href="http://arundhaj.com/favicon.png" rel="icon">
+
+  <link href="http://arundhaj.com/theme/css/main.css" media="screen, projection"
+        rel="stylesheet" type="text/css">
+
+  <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="http://arundhaj.com/theme/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header role="banner"><hgroup>
+  <h1><a href="http://arundhaj.com/">arundhaj</a></h1>
+    <h2>regression toward the datascience</h2>
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+</ul>
+
+
+<ul class="main-navigation">
+    <li><a href="/">Home</a></li>
+    <li><a href="/archives.html">Archives</a></li>
+    <li><a href="/blog/atom.xml">Feeds</a></li>
+      <li><a href="http://arundhaj.com/pages/about-me.html">About Me</a></li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+<div>
+  <article class="hentry" role="article">
+<header>
+      <h1 class="entry-title">HibernateException No Session found for current thread</h1>
+    <p class="meta">
+<i class="fa fa-clock-o"></i>&nbsp;<time datetime="2012-12-08T20:30:00+05:30" pubdate>Sat 08 December 2012</time>    </p>
+</header>
+
+  <div class="entry-content"><p>While programming a web application with Spring and Hibernate, came across <code>HibernateException: No session found for current thread</code>. Apparently found out I was missing <code>@Transaction</code> which was causing trouble.</p>
+<div class="highlight"><pre><span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">NestedServletException</span><span class="o">:</span> <span class="n">Request</span> <span class="n">processing</span> <span class="n">failed</span><span class="o">;</span> <span class="n">nested</span> <span class="n">exception</span> <span class="n">is</span> <span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">HibernateException</span><span class="o">:</span> <span class="n">No</span> <span class="n">Session</span> <span class="n">found</span> <span class="k">for</span> <span class="n">current</span> <span class="n">thread</span>
+    <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">servlet</span><span class="o">.</span><span class="na">FrameworkServlet</span><span class="o">.</span><span class="na">processRequest</span><span class="o">(</span><span class="n">FrameworkServlet</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">894</span><span class="o">)</span>
+    <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">servlet</span><span class="o">.</span><span class="na">FrameworkServlet</span><span class="o">.</span><span class="na">doGet</span><span class="o">(</span><span class="n">FrameworkServlet</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">778</span><span class="o">)</span>
+    <span class="n">javax</span><span class="o">.</span><span class="na">servlet</span><span class="o">.</span><span class="na">http</span><span class="o">.</span><span class="na">HttpServlet</span><span class="o">.</span><span class="na">service</span><span class="o">(</span><span class="n">HttpServlet</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">621</span><span class="o">)</span>
+    <span class="n">javax</span><span class="o">.</span><span class="na">servlet</span><span class="o">.</span><span class="na">http</span><span class="o">.</span><span class="na">HttpServlet</span><span class="o">.</span><span class="na">service</span><span class="o">(</span><span class="n">HttpServlet</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">722</span><span class="o">)</span>
+<span class="n">root</span> <span class="n">cause</span>
+
+<span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">HibernateException</span><span class="o">:</span> <span class="n">No</span> <span class="n">Session</span> <span class="n">found</span> <span class="k">for</span> <span class="n">current</span> <span class="n">thread</span>
+    <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">orm</span><span class="o">.</span><span class="na">hibernate4</span><span class="o">.</span><span class="na">SpringSessionContext</span><span class="o">.</span><span class="na">currentSession</span><span class="o">(</span><span class="n">SpringSessionContext</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">97</span><span class="o">)</span>
+    <span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">internal</span><span class="o">.</span><span class="na">SessionFactoryImpl</span><span class="o">.</span><span class="na">getCurrentSession</span><span class="o">(</span><span class="n">SessionFactoryImpl</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">978</span><span class="o">)</span>
+    <span class="n">com</span><span class="o">.</span><span class="na">arundhaj</span><span class="o">.</span><span class="na">bm</span><span class="o">.</span><span class="na">bookmark</span><span class="o">.</span><span class="na">BookmarkLinksDaoImpl</span><span class="o">.</span><span class="na">findById</span><span class="o">(</span><span class="n">BookmarkLinksDaoImpl</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">39</span><span class="o">)</span>
+    <span class="n">sun</span><span class="o">.</span><span class="na">reflect</span><span class="o">.</span><span class="na">NativeMethodAccessorImpl</span><span class="o">.</span><span class="na">invoke0</span><span class="o">(</span><span class="n">Native</span> <span class="n">Method</span><span class="o">)</span>
+    <span class="n">sun</span><span class="o">.</span><span class="na">reflect</span><span class="o">.</span><span class="na">NativeMethodAccessorImpl</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">NativeMethodAccessorImpl</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">57</span><span class="o">)</span>
+    <span class="n">sun</span><span class="o">.</span><span class="na">reflect</span><span class="o">.</span><span class="na">DelegatingMethodAccessorImpl</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">DelegatingMethodAccessorImpl</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">43</span><span class="o">)</span>
+    <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">reflect</span><span class="o">.</span><span class="na">Method</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">Method</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">601</span><span class="o">)</span>
+    <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">aop</span><span class="o">.</span><span class="na">support</span><span class="o">.</span><span class="na">AopUtils</span><span class="o">.</span><span class="na">invokeJoinpointUsingReflection</span><span class="o">(</span><span class="n">AopUtils</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">319</span><span class="o">)</span>
+    <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">aop</span><span class="o">.</span><span class="na">framework</span><span class="o">.</span><span class="na">JdkDynamicAopProxy</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">JdkDynamicAopProxy</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">196</span><span class="o">)</span>
+    <span class="n">$Proxy17</span><span class="o">.</span><span class="na">findById</span><span class="o">(</span><span class="n">Unknown</span> <span class="n">Source</span><span class="o">)</span>
+    <span class="n">com</span><span class="o">.</span><span class="na">arundhaj</span><span class="o">.</span><span class="na">bm</span><span class="o">.</span><span class="na">bookmark</span><span class="o">.</span><span class="na">BookmarkLinksBoImpl</span><span class="o">.</span><span class="na">findById</span><span class="o">(</span><span class="n">BookmarkLinksBoImpl</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">31</span><span class="o">)</span>
+    <span class="n">com</span><span class="o">.</span><span class="na">arundhaj</span><span class="o">.</span><span class="na">bm</span><span class="o">.</span><span class="na">controller</span><span class="o">.</span><span class="na">BookmarkController</span><span class="o">.</span><span class="na">bookmark</span><span class="o">(</span><span class="n">BookmarkController</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">39</span><span class="o">)</span>
+    <span class="n">sun</span><span class="o">.</span><span class="na">reflect</span><span class="o">.</span><span class="na">NativeMethodAccessorImpl</span><span class="o">.</span><span class="na">invoke0</span><span class="o">(</span><span class="n">Native</span> <span class="n">Method</span><span class="o">)</span>
+    <span class="n">sun</span><span class="o">.</span><span class="na">reflect</span><span class="o">.</span><span class="na">NativeMethodAccessorImpl</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">NativeMethodAccessorImpl</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">57</span><span class="o">)</span>
+    <span class="n">sun</span><span class="o">.</span><span class="na">reflect</span><span class="o">.</span><span class="na">DelegatingMethodAccessorImpl</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">DelegatingMethodAccessorImpl</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">43</span><span class="o">)</span>
+    <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">reflect</span><span class="o">.</span><span class="na">Method</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">Method</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">601</span><span class="o">)</span>
+    <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">method</span><span class="o">.</span><span class="na">support</span><span class="o">.</span><span class="na">InvocableHandlerMethod</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">InvocableHandlerMethod</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">219</span><span class="o">)</span>
+    <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">method</span><span class="o">.</span><span class="na">support</span><span class="o">.</span><span class="na">InvocableHandlerMethod</span><span class="o">.</span><span class="na">invokeForRequest</span><span class="o">(</span><span class="n">InvocableHandlerMethod</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">132</span><span class="o">)</span>
+    <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">servlet</span><span class="o">.</span><span class="na">mvc</span><span class="o">.</span><span class="na">method</span><span class="o">.</span><span class="na">annotation</span><span class="o">.</span><span class="na">ServletInvocableHandlerMethod</span><span class="o">.</span><span class="na">invokeAndHandle</span><span class="o">(</span><span class="n">ServletInvocableHandlerMethod</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">100</span><span class="o">)</span>
+    <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">servlet</span><span class="o">.</span><span class="na">mvc</span><span class="o">.</span><span class="na">method</span><span class="o">.</span><span class="na">annotation</span><span class="o">.</span><span class="na">RequestMappingHandlerAdapter</span><span class="o">.</span><span class="na">invokeHandlerMethod</span><span class="o">(</span><span class="n">RequestMappingHandlerAdapter</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">604</span><span class="o">)</span>
+    <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">servlet</span><span class="o">.</span><span class="na">mvc</span><span class="o">.</span><span class="na">method</span><span class="o">.</span><span class="na">annotation</span><span class="o">.</span><span class="na">RequestMappingHandlerAdapter</span><span class="o">.</span><span class="na">handleInternal</span><span class="o">(</span><span class="n">RequestMappingHandlerAdapter</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">565</span><span class="o">)</span>
+    <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">servlet</span><span class="o">.</span><span class="na">mvc</span><span class="o">.</span><span class="na">method</span><span class="o">.</span><span class="na">AbstractHandlerMethodAdapter</span><span class="o">.</span><span class="na">handle</span><span class="o">(</span><span class="n">AbstractHandlerMethodAdapter</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">80</span><span class="o">)</span>
+    <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">servlet</span><span class="o">.</span><span class="na">DispatcherServlet</span><span class="o">.</span><span class="na">doDispatch</span><span class="o">(</span><span class="n">DispatcherServlet</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">923</span><span class="o">)</span>
+    <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">servlet</span><span class="o">.</span><span class="na">DispatcherServlet</span><span class="o">.</span><span class="na">doService</span><span class="o">(</span><span class="n">DispatcherServlet</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">852</span><span class="o">)</span>
+    <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">servlet</span><span class="o">.</span><span class="na">FrameworkServlet</span><span class="o">.</span><span class="na">processRequest</span><span class="o">(</span><span class="n">FrameworkServlet</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">882</span><span class="o">)</span>
+    <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">servlet</span><span class="o">.</span><span class="na">FrameworkServlet</span><span class="o">.</span><span class="na">doGet</span><span class="o">(</span><span class="n">FrameworkServlet</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">778</span><span class="o">)</span>
+    <span class="n">javax</span><span class="o">.</span><span class="na">servlet</span><span class="o">.</span><span class="na">http</span><span class="o">.</span><span class="na">HttpServlet</span><span class="o">.</span><span class="na">service</span><span class="o">(</span><span class="n">HttpServlet</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">621</span><span class="o">)</span>
+    <span class="n">javax</span><span class="o">.</span><span class="na">servlet</span><span class="o">.</span><span class="na">http</span><span class="o">.</span><span class="na">HttpServlet</span><span class="o">.</span><span class="na">service</span><span class="o">(</span><span class="n">HttpServlet</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">722</span><span class="o">)</span>
+</pre></div>
+
+
+<p>Then defined the transaction beans in <code>applicationContext.xml</code></p>
+<div class="highlight"><pre><span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&quot;transactionManager&quot;</span>
+    <span class="na">class=</span><span class="s">&quot;org.springframework.orm.hibernate4.HibernateTransactionManager&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;sessionFactory&quot;</span> <span class="na">ref=</span><span class="s">&quot;sessionFactory&quot;</span><span class="nt">&gt;&lt;/property&gt;</span>
+<span class="nt">&lt;/bean&gt;</span>
+
+<span class="nt">&lt;tx:annotation-driven</span> <span class="na">transaction-manager=</span><span class="s">&quot;transactionManager&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+
+
+<p>Further added the annotation to the method which threw the exception.</p>
+<div class="highlight"><pre><span class="nd">@Transactional</span>
+<span class="kd">public</span> <span class="n">List</span> <span class="nf">findById</span><span class="o">()</span> <span class="o">{}</span>
+</pre></div>
+
+
+<p>Hope this helps.</p></div>
+    <footer>
+<p class="meta">
+<i class="fa fa-clock-o"></i>&nbsp;<time datetime="2012-12-08T20:30:00+05:30" pubdate>Sat 08 December 2012</time>  <i class="fa fa-tags"></i>
+  <span class="categories">
+    <a class="category" href="http://arundhaj.com/tag/technical.html">Technical</a>,    <a class="category" href="http://arundhaj.com/tag/java.html">Java</a>,    <a class="category" href="http://arundhaj.com/tag/j2ee.html">J2EE</a>,    <a class="category" href="http://arundhaj.com/tag/spring.html">Spring</a>,    <a class="category" href="http://arundhaj.com/tag/hibernate.html">Hibernate</a>  </span>
+</p><div class="sharing">
+</div>    </footer>
+  </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+  </section>
+</div>
+<aside class="sidebar">
+  <section>
+    <h1>Recent Posts</h1>
+    <ul id="recent_posts">
+      <li class="post">
+          <a href="http://arundhaj.com/blog/tornado-error-during-websocket-handshake.html">Tornado Error during WebSocket handshake</a>
+      </li>
+      <li class="post">
+          <a href="http://arundhaj.com/blog/binding-port-80-tomcat-ubuntu.html">Binding port 80 to tomcat in Ubuntu</a>
+      </li>
+      <li class="post">
+          <a href="http://arundhaj.com/blog/scikit-decision-tree-with-categorical-data.html">Scikit-learn DecisionTree with categorical data</a>
+      </li>
+      <li class="post">
+          <a href="http://arundhaj.com/blog/building-hadoop-source-code.html">Building Hadoop source code</a>
+      </li>
+      <li class="post">
+          <a href="http://arundhaj.com/blog/pig-script-process-csv-with-quotes-multiline.html">Pig script to process CSV file with quotes and multiline</a>
+      </li>
+    </ul>
+  </section>
+
+
+    <section>
+        <h1>Social</h1>
+        <ul>
+            <li><i class="fa-github-alt"></i>&nbsp;<a href="http://github.com/arundhaj" target="_blank">GitHub</a></li>
+            <li><i class="fa-twitter"></i>&nbsp;<a href="https://twitter.com/arundhaj" target="_blank">Twitter</a></li>
+            <li><i class="fa-linkedin"></i>&nbsp;<a href="http://www.linkedin.com/in/arundhaj" target="_blank">LinkedIn</a></li>
+        </ul>
+    </section>
+
+</aside>    </div>
+  </div>
+  <footer role="contentinfo"><p>
+    Copyright &copy;  2007&ndash;2015  ArunDhaJ &mdash;
+  <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
+</p></footer>
+  <script src="http://arundhaj.com/theme/js/modernizr-2.0.js"></script>
+  <script src="http://arundhaj.com/theme/js/ender.js"></script>
+  <script src="http://arundhaj.com/theme/js/octopress.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-31200654-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-31200654-1');
+    ga('send', 'pageview');
+</script>
+  <script type="text/javascript">
+    var disqus_shortname = 'arundhaj';
+    var disqus_identifier = '/blog/hibernateexception-no-session-found.html';
+    var disqus_url = 'http://arundhaj.com/blog/hibernateexception-no-session-found.html';
+    var disqus_title = 'HibernateException No Session found for current thread';
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = "//" + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+  </script>
+</body>
+</html>

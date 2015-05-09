@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset 
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <url>
+    <loc>http://arundhaj.com/blog/tornado-error-during-websocket-handshake.html</loc>
+    <lastmod>2015-05-09T22:30:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/binding-port-80-tomcat-ubuntu.html</loc>
+    <lastmod>2015-04-27T22:30:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/scikit-decision-tree-with-categorical-data.html</loc>
+    <lastmod>2015-03-22T18:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/building-hadoop-source-code.html</loc>
+    <lastmod>2014-11-25T23:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/pig-script-process-csv-with-quotes-multiline.html</loc>
+    <lastmod>2014-09-25T11:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/split-array-on-difference-numpy.html</loc>
+    <lastmod>2014-09-05T11:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/import-postgres-to-hdfs-sqoop.html</loc>
+    <lastmod>2014-08-01T16:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/visualization-of-pycon-2014-proposals.html</loc>
+    <lastmod>2014-07-10T11:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/categorizing-and-summing-data-d3js.html</loc>
+    <lastmod>2014-06-04T16:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/connect-remote-postgresql-server-pgadmin.html</loc>
+    <lastmod>2014-05-30T15:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/installing-hortonworks-hdp2-on-ec2.html</loc>
+    <lastmod>2014-05-27T16:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/sslprotocolexception-handshake-alert.html</loc>
+    <lastmod>2014-03-27T16:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/pytypeobjects.html</loc>
+    <lastmod>2014-03-25T15:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/starting-core-python-programming.html</loc>
+    <lastmod>2014-03-18T10:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/pandas-with-postgres-datasource.html</loc>
+    <lastmod>2013-12-19T12:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/spring-hibernate-create-table-if-not-exists.html</loc>
+    <lastmod>2013-10-25T09:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/imdb-top250-visualized-with-d3js.html</loc>
+    <lastmod>2013-09-07T09:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/starting-cdh-vm-in-windows.html</loc>
+    <lastmod>2013-09-07T09:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/single-file-minimal-webapp-in-django.html</loc>
+    <lastmod>2013-09-05T11:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/getting-started-with-zeromq-in-python.html</loc>
+    <lastmod>2013-07-24T17:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/converting-repeating-decimals-into-fractions.html</loc>
+    <lastmod>2013-07-23T16:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/better-not-to-ask-feedback.html</loc>
+    <lastmod>2013-07-11T10:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/difference-between-time-is-too-large.html</loc>
+    <lastmod>2013-06-26T14:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/using-mail-during-django-development.html</loc>
+    <lastmod>2013-05-09T11:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/querysyntaxexception-not-mapped.html</loc>
+    <lastmod>2013-04-18T12:30:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/automatically-generating-slug-url.html</loc>
+    <lastmod>2013-04-03T15:30:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/gitignore-for-python-projects.html</loc>
+    <lastmod>2013-02-16T11:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/connecting-internet-with-usb-modem.html</loc>
+    <lastmod>2013-02-09T11:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/peer-to-peer-networking-with-raspberry-pi.html</loc>
+    <lastmod>2013-01-24T22:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/j2ee-server-for-webfaction.html</loc>
+    <lastmod>2013-01-10T10:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/unsupportedclassversionerror-unsupported-major-minor-version-51-0.html</loc>
+    <lastmod>2013-01-08T21:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/hbase-row-filter-with-regex.html</loc>
+    <lastmod>2013-01-06T18:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/spring-data-hadoop-webapp.html</loc>
+    <lastmod>2012-12-11T15:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/hibernateexception-no-session-found.html</loc>
+    <lastmod>2012-12-08T20:30:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/disable-animation-ubuntu.html</loc>
+    <lastmod>2012-11-02T11:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/moving-folders-between-svn-repos.html</loc>
+    <lastmod>2012-10-26T11:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/getGeneratedKeys-with-postgresql.html</loc>
+    <lastmod>2012-10-12T17:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/git-post-receive-hook.html</loc>
+    <lastmod>2012-07-20T10:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/http-406-response-from-spring-controller.html</loc>
+    <lastmod>2012-07-19T10:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/rip-stephen-r-covey.html</loc>
+    <lastmod>2012-07-17T10:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/how-to-set-source-level-in-maven-projects.html</loc>
+    <lastmod>2012-07-16T10:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/custom-style-and-script-as-plugin.html</loc>
+    <lastmod>2012-06-19T10:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/resize-virtualbox-hard-disk.html</loc>
+    <lastmod>2012-06-18T10:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/moving-to-github.html</loc>
+    <lastmod>2012-04-26T10:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/kernel-source-code-mirror-in-google.html</loc>
+    <lastmod>2012-04-25T10:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/productivity-is-about-product.html</loc>
+    <lastmod>2012-04-17T10:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/sms-game-app-on-txtweb.html</loc>
+    <lastmod>2011-08-24T10:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/consistency-over-heroism.html</loc>
+    <lastmod>2011-06-14T10:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/boiler-plate.html</loc>
+    <lastmod>2011-05-17T10:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/license-to-use-the-word-productivity.html</loc>
+    <lastmod>2011-02-23T10:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/take-ownership-or-give-ownership.html</loc>
+    <lastmod>2011-01-18T10:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/real-world-object.html</loc>
+    <lastmod>2011-01-12T10:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/productive-in-home.html</loc>
+    <lastmod>2011-01-11T10:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/how-much-work-is-too-much.html</loc>
+    <lastmod>2010-11-09T10:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/step-1-for-compiling-and-burning.html</loc>
+    <lastmod>2010-11-04T10:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/foss-tools-i-use.html</loc>
+    <lastmod>2010-11-02T10:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/atmel-avr-microcontroller.html</loc>
+    <lastmod>2010-09-29T10:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://arundhaj.com/blog/what-am-i-doing-here.html</loc>
+    <lastmod>2007-02-22T10:00:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+
+  <url>
+    <loc>http://arundhaj.com/pages/about-me.html</loc>
+    <lastmod>2010-09-29T10:00:00+05:30</lastmod>
+    <priority>1.0</priority>
+  </url>
+
+
+</urlset>

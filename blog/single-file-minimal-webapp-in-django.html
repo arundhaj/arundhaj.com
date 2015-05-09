@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Single File Minimal Webapp in Django &mdash; arundhaj</title>
+  <meta name="author" content="ArunDhaJ">
+  <meta name="description" content="Creating a single file minimal webapp in Django" />
+
+
+
+
+
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link href="http://arundhaj.com/favicon.png" rel="icon">
+
+  <link href="http://arundhaj.com/theme/css/main.css" media="screen, projection"
+        rel="stylesheet" type="text/css">
+
+  <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="http://arundhaj.com/theme/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header role="banner"><hgroup>
+  <h1><a href="http://arundhaj.com/">arundhaj</a></h1>
+    <h2>regression toward the datascience</h2>
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+</ul>
+
+
+<ul class="main-navigation">
+    <li><a href="/">Home</a></li>
+    <li><a href="/archives.html">Archives</a></li>
+    <li><a href="/blog/atom.xml">Feeds</a></li>
+      <li><a href="http://arundhaj.com/pages/about-me.html">About Me</a></li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+<div>
+  <article class="hentry" role="article">
+<header>
+      <h1 class="entry-title">Single File Minimal Webapp in Django</h1>
+    <p class="meta">
+<i class="fa fa-clock-o"></i>&nbsp;<time datetime="2013-09-05T11:00:00+05:30" pubdate>Thu 05 September 2013</time>    </p>
+</header>
+
+  <div class="entry-content"><p>Last week I've attended a <a href="http://in.pycon.org/funnel/2013/59-django-beyond-basics">Django Session</a> in <a href="http://in.pycon.org/2013">PyCon India 2013</a> presented by <a href="http://arunrocks.com">Arun Ravindran</a>. It was a good session which covered the basics. I started learning <a href="https://www.djangoproject.com">Django</a> by doing a considerably big application, and now I'm uncovering the basics step by step. In certain cases I required a very small application but ended up creating a whole bunch of files with <code>django-admin.py startproject</code>. For this reason I thought of exploring web.py, flask etc., but was not convinced to move out of Django. This session introduced me a single file django application, which exactly I was looking at. Then I tried it at home.</p>
+<p>With a minimal changes to the code shared by Arun, I was successfully able to verify it. And here is the code snippet.</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">django.conf.urls.defaults</span> <span class="kn">import</span> <span class="n">patterns</span>
+<span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
+
+<span class="n">filepath</span><span class="p">,</span> <span class="n">extension</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">__file__</span><span class="p">)</span>
+
+<span class="n">DEBUG</span><span class="o">=</span><span class="bp">True</span>
+<span class="n">ROOT_URLCONF</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span> <span class="c"># same should be given in settings &quot;index&quot;</span>
+<span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;default&#39;</span> <span class="p">:</span> <span class="p">{}}</span>
+<span class="n">SECRET_KEY</span> <span class="o">=</span> <span class="s">&#39;0123456789&#39;</span> <span class="o">*</span> <span class="mi">50</span>
+
+<span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s">&#39;Hello World!&#39;</span><span class="p">)</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="p">(</span><span class="s">r&#39;^$&#39;</span><span class="p">,</span> <span class="n">index</span><span class="p">))</span>
+</pre></div>
+
+
+<p>Save the above snippet in a file named, say <code>index.py</code>. Then run the below command to get it started in Windows.</p>
+<div class="highlight"><pre>D:<span class="se">\d</span>jango&gt; python D:<span class="se">\P</span>rogramFiles<span class="se">\P</span>ython27<span class="se">\L</span>ib<span class="se">\s</span>ite-packages<span class="se">\d</span>jango<span class="se">\b</span>in<span class="se">\d</span>jango-admin.py runserver <span class="m">8000</span> --pythonpath<span class="o">=</span>. --settings<span class="o">=</span>index
+</pre></div>
+
+
+<p>And for Linux</p>
+<div class="highlight"><pre><span class="nv">$ PYTHONPATH</span><span class="o">=</span>. django-admin.py runserver 0.0.0.0:8000 --settings<span class="o">=</span>index
+</pre></div>
+
+
+<p>However, this doesn't work when we switch off the DEBUG mode. I think that there should be some configurations change that has to be done when running in Apache. I'll update as I find it.</p></div>
+    <footer>
+<p class="meta">
+<i class="fa fa-clock-o"></i>&nbsp;<time datetime="2013-09-05T11:00:00+05:30" pubdate>Thu 05 September 2013</time>  <i class="fa fa-tags"></i>
+  <span class="categories">
+    <a class="category" href="http://arundhaj.com/tag/technical.html">Technical</a>,    <a class="category" href="http://arundhaj.com/tag/python.html">Python</a>,    <a class="category" href="http://arundhaj.com/tag/django.html">Django</a>  </span>
+</p><div class="sharing">
+</div>    </footer>
+  </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+  </section>
+</div>
+<aside class="sidebar">
+  <section>
+    <h1>Recent Posts</h1>
+    <ul id="recent_posts">
+      <li class="post">
+          <a href="http://arundhaj.com/blog/tornado-error-during-websocket-handshake.html">Tornado Error during WebSocket handshake</a>
+      </li>
+      <li class="post">
+          <a href="http://arundhaj.com/blog/binding-port-80-tomcat-ubuntu.html">Binding port 80 to tomcat in Ubuntu</a>
+      </li>
+      <li class="post">
+          <a href="http://arundhaj.com/blog/scikit-decision-tree-with-categorical-data.html">Scikit-learn DecisionTree with categorical data</a>
+      </li>
+      <li class="post">
+          <a href="http://arundhaj.com/blog/building-hadoop-source-code.html">Building Hadoop source code</a>
+      </li>
+      <li class="post">
+          <a href="http://arundhaj.com/blog/pig-script-process-csv-with-quotes-multiline.html">Pig script to process CSV file with quotes and multiline</a>
+      </li>
+    </ul>
+  </section>
+
+
+    <section>
+        <h1>Social</h1>
+        <ul>
+            <li><i class="fa-github-alt"></i>&nbsp;<a href="http://github.com/arundhaj" target="_blank">GitHub</a></li>
+            <li><i class="fa-twitter"></i>&nbsp;<a href="https://twitter.com/arundhaj" target="_blank">Twitter</a></li>
+            <li><i class="fa-linkedin"></i>&nbsp;<a href="http://www.linkedin.com/in/arundhaj" target="_blank">LinkedIn</a></li>
+        </ul>
+    </section>
+
+</aside>    </div>
+  </div>
+  <footer role="contentinfo"><p>
+    Copyright &copy;  2007&ndash;2015  ArunDhaJ &mdash;
+  <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
+</p></footer>
+  <script src="http://arundhaj.com/theme/js/modernizr-2.0.js"></script>
+  <script src="http://arundhaj.com/theme/js/ender.js"></script>
+  <script src="http://arundhaj.com/theme/js/octopress.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-31200654-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-31200654-1');
+    ga('send', 'pageview');
+</script>
+  <script type="text/javascript">
+    var disqus_shortname = 'arundhaj';
+    var disqus_identifier = '/blog/single-file-minimal-webapp-in-django.html';
+    var disqus_url = 'http://arundhaj.com/blog/single-file-minimal-webapp-in-django.html';
+    var disqus_title = 'Single File Minimal Webapp in Django';
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = "//" + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+  </script>
+</body>
+</html>

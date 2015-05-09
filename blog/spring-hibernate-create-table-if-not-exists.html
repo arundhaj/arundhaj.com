@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Spring Hibernate - Create table if not exists &mdash; arundhaj</title>
+  <meta name="author" content="ArunDhaJ">
+  <meta name="description" content="Spring Hibernate Create table if not exists" />
+
+
+
+
+
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link href="http://arundhaj.com/favicon.png" rel="icon">
+
+  <link href="http://arundhaj.com/theme/css/main.css" media="screen, projection"
+        rel="stylesheet" type="text/css">
+
+  <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="http://arundhaj.com/theme/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header role="banner"><hgroup>
+  <h1><a href="http://arundhaj.com/">arundhaj</a></h1>
+    <h2>regression toward the datascience</h2>
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+</ul>
+
+
+<ul class="main-navigation">
+    <li><a href="/">Home</a></li>
+    <li><a href="/archives.html">Archives</a></li>
+    <li><a href="/blog/atom.xml">Feeds</a></li>
+      <li><a href="http://arundhaj.com/pages/about-me.html">About Me</a></li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+<div>
+  <article class="hentry" role="article">
+<header>
+      <h1 class="entry-title">Spring Hibernate - Create table if not exists</h1>
+    <p class="meta">
+<i class="fa fa-clock-o"></i>&nbsp;<time datetime="2013-10-25T09:00:00+05:30" pubdate>Fri 25 October 2013</time>    </p>
+</header>
+
+  <div class="entry-content"><p>We have to configure hibernate, if we require the application to create the table when it doesn't already exists. Else, we would end up with the below mentioned exception.</p>
+<div class="highlight"><pre>ERROR: ERROR: relation <span class="s2">&quot;mytable&quot;</span> does not exist
+  Position: 13
+org.hibernate.exception.SQLGrammarException: could not execute statement
+    at org.hibernate.exception.internal.SQLStateConversionDelegate.convert<span class="o">(</span>SQLStateConversionDelegate.java:122<span class="o">)</span>
+    at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert<span class="o">(</span>StandardSQLExceptionConverter.java:49<span class="o">)</span>
+    at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert<span class="o">(</span>SqlExceptionHelper.java:125<span class="o">)</span>
+    at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert<span class="o">(</span>SqlExceptionHelper.java:110<span class="o">)</span>
+    at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate<span class="o">(</span>ResultSetReturnImpl.java:136<span class="o">)</span>
+    at org.hibernate.id.IdentityGenerator<span class="nv">$GetGeneratedKeysDelegate</span>.executeAndExtract<span class="o">(</span>IdentityGenerator.java:96<span class="o">)</span>
+    at org.hibernate.id.insert.AbstractReturningDelegate.performInsert<span class="o">(</span>AbstractReturningDelegate.java:58<span class="o">)</span>
+    at org.hibernate.persister.entity.AbstractEntityPersister.insert<span class="o">(</span>AbstractEntityPersister.java:2966<span class="o">)</span>
+    at org.hibernate.persister.entity.AbstractEntityPersister.insert<span class="o">(</span>AbstractEntityPersister.java:3477<span class="o">)</span>
+    at org.hibernate.action.internal.EntityIdentityInsertAction.execute<span class="o">(</span>EntityIdentityInsertAction.java:81<span class="o">)</span>
+    at org.hibernate.engine.spi.ActionQueue.execute<span class="o">(</span>ActionQueue.java:362<span class="o">)</span>
+    at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction<span class="o">(</span>ActionQueue.java:203<span class="o">)</span>
+    at org.hibernate.engine.spi.ActionQueue.addInsertAction<span class="o">(</span>ActionQueue.java:183<span class="o">)</span>
+    at org.hibernate.engine.spi.ActionQueue.addAction<span class="o">(</span>ActionQueue.java:167<span class="o">)</span>
+    at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction<span class="o">(</span>AbstractSaveEventListener.java:321<span class="o">)</span>
+    at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate<span class="o">(</span>AbstractSaveEventListener.java:286<span class="o">)</span>
+    at org.hibernate.event.internal.AbstractSaveEventListener.performSave<span class="o">(</span>AbstractSaveEventListener.java:192<span class="o">)</span>
+    at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId<span class="o">(</span>AbstractSaveEventListener.java:125<span class="o">)</span>
+    at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId<span class="o">(</span>DefaultSaveOrUpdateEventListener.java:204<span class="o">)</span>
+    at org.hibernate.event.internal.DefaultSaveEventListener.saveWithGeneratedOrRequestedId<span class="o">(</span>DefaultSaveEventListener.java:55<span class="o">)</span>
+    at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.entityIsTransient<span class="o">(</span>DefaultSaveOrUpdateEventListener.java:189<span class="o">)</span>
+    at org.hibernate.event.internal.DefaultSaveEventListener.performSaveOrUpdate<span class="o">(</span>DefaultSaveEventListener.java:49<span class="o">)</span>
+    at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.onSaveOrUpdate<span class="o">(</span>DefaultSaveOrUpdateEventListener.java:90<span class="o">)</span>
+    at org.hibernate.internal.SessionImpl.fireSave<span class="o">(</span>SessionImpl.java:763<span class="o">)</span>
+    at org.hibernate.internal.SessionImpl.save<span class="o">(</span>SessionImpl.java:755<span class="o">)</span>
+    at org.hibernate.internal.SessionImpl.save<span class="o">(</span>SessionImpl.java:751<span class="o">)</span>
+    at com.arundhaj.domain.MyTableDao.save<span class="o">(</span>MyTableDao.java:17<span class="o">)</span>
+    at sun.reflect.NativeMethodAccessorImpl.invoke0<span class="o">(</span>Native Method<span class="o">)</span>
+    at sun.reflect.NativeMethodAccessorImpl.invoke<span class="o">(</span>NativeMethodAccessorImpl.java:57<span class="o">)</span>
+    at sun.reflect.DelegatingMethodAccessorImpl.invoke<span class="o">(</span>DelegatingMethodAccessorImpl.java:43<span class="o">)</span>
+    at java.lang.reflect.Method.invoke<span class="o">(</span>Method.java:606<span class="o">)</span>
+    at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection<span class="o">(</span>AopUtils.java:317<span class="o">)</span>
+    at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint<span class="o">(</span>ReflectiveMethodInvocation.java:183<span class="o">)</span>
+    at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed<span class="o">(</span>ReflectiveMethodInvocation.java:150<span class="o">)</span>
+    at org.springframework.transaction.interceptor.TransactionInterceptor<span class="nv">$1</span>.proceedWithInvocation<span class="o">(</span>TransactionInterceptor.java:96<span class="o">)</span>
+    at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction<span class="o">(</span>TransactionAspectSupport.java:260<span class="o">)</span>
+    at org.springframework.transaction.interceptor.TransactionInterceptor.invoke<span class="o">(</span>TransactionInterceptor.java:94<span class="o">)</span>
+    at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed<span class="o">(</span>ReflectiveMethodInvocation.java:172<span class="o">)</span>
+    at org.springframework.aop.framework.JdkDynamicAopProxy.invoke<span class="o">(</span>JdkDynamicAopProxy.java:204<span class="o">)</span>
+    at com.sun.proxy.<span class="nv">$Proxy15</span>.save<span class="o">(</span>Unknown Source<span class="o">)</span>
+    at com.arundhaj.domain.MyTableBo.save<span class="o">(</span>MyTableBo.java:15<span class="o">)</span>
+    at com.arundhaj.Evaluate.run<span class="o">(</span>Evaluate.java:38<span class="o">)</span>
+    at com.arundhaj.App.main<span class="o">(</span>App.java:22<span class="o">)</span>
+Caused by: org.postgresql.util.PSQLException: ERROR: relation <span class="s2">&quot;mytable&quot;</span> does not exist
+  Position: 13
+    at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse<span class="o">(</span>QueryExecutorImpl.java:2103<span class="o">)</span>
+    at org.postgresql.core.v3.QueryExecutorImpl.processResults<span class="o">(</span>QueryExecutorImpl.java:1836<span class="o">)</span>
+    at org.postgresql.core.v3.QueryExecutorImpl.execute<span class="o">(</span>QueryExecutorImpl.java:257<span class="o">)</span>
+    at org.postgresql.jdbc2.AbstractJdbc2Statement.execute<span class="o">(</span>AbstractJdbc2Statement.java:512<span class="o">)</span>
+    at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags<span class="o">(</span>AbstractJdbc2Statement.java:388<span class="o">)</span>
+    at org.postgresql.jdbc2.AbstractJdbc2Statement.executeUpdate<span class="o">(</span>AbstractJdbc2Statement.java:334<span class="o">)</span>
+    at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate<span class="o">(</span>ResultSetReturnImpl.java:133<span class="o">)</span>
+    ... <span class="m">38</span> more
+</pre></div>
+
+
+<p>The required hibernate property in the bean configuration file is.</p>
+<div class="highlight"><pre>    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;hibernateProperties&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;props&gt;</span>
+            <span class="nt">&lt;prop</span> <span class="na">key=</span><span class="s">&quot;hibernate.dialect&quot;</span><span class="nt">&gt;</span>org.hibernate.dialect.PostgreSQLDialect<span class="nt">&lt;/prop&gt;</span>
+            <span class="nt">&lt;prop</span> <span class="na">key=</span><span class="s">&quot;hibernate.show_sql&quot;</span><span class="nt">&gt;</span>true<span class="nt">&lt;/prop&gt;</span>
+            <span class="nt">&lt;prop</span> <span class="na">key=</span><span class="s">&quot;hibernate.hbm2ddl&quot;</span><span class="nt">&gt;</span>create<span class="nt">&lt;/prop&gt;</span>
+        <span class="nt">&lt;/props&gt;</span>
+    <span class="nt">&lt;/property&gt;</span>
+</pre></div>
+
+
+<p>The configuration <code>hibernate.hbm2ddl</code> would <code>create</code> a table, if it doesn't already exits. However, every time when we run the application, it will always create a new table by deleting the existing table. So, the value should be changed to <code>update</code>, if you wanted to create the table only once and from next time, use the available table.</p>
+<p>Hope it would help the starters getting hands on hibernate.</p></div>
+    <footer>
+<p class="meta">
+<i class="fa fa-clock-o"></i>&nbsp;<time datetime="2013-10-25T09:00:00+05:30" pubdate>Fri 25 October 2013</time>  <i class="fa fa-tags"></i>
+  <span class="categories">
+    <a class="category" href="http://arundhaj.com/tag/technical.html">Technical</a>,    <a class="category" href="http://arundhaj.com/tag/java.html">Java</a>,    <a class="category" href="http://arundhaj.com/tag/j2ee.html">J2EE</a>,    <a class="category" href="http://arundhaj.com/tag/spring.html">Spring</a>,    <a class="category" href="http://arundhaj.com/tag/hibernate.html">Hibernate</a>,    <a class="category" href="http://arundhaj.com/tag/postgresql.html">PostgreSQL</a>  </span>
+</p><div class="sharing">
+</div>    </footer>
+  </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+  </section>
+</div>
+<aside class="sidebar">
+  <section>
+    <h1>Recent Posts</h1>
+    <ul id="recent_posts">
+      <li class="post">
+          <a href="http://arundhaj.com/blog/tornado-error-during-websocket-handshake.html">Tornado Error during WebSocket handshake</a>
+      </li>
+      <li class="post">
+          <a href="http://arundhaj.com/blog/binding-port-80-tomcat-ubuntu.html">Binding port 80 to tomcat in Ubuntu</a>
+      </li>
+      <li class="post">
+          <a href="http://arundhaj.com/blog/scikit-decision-tree-with-categorical-data.html">Scikit-learn DecisionTree with categorical data</a>
+      </li>
+      <li class="post">
+          <a href="http://arundhaj.com/blog/building-hadoop-source-code.html">Building Hadoop source code</a>
+      </li>
+      <li class="post">
+          <a href="http://arundhaj.com/blog/pig-script-process-csv-with-quotes-multiline.html">Pig script to process CSV file with quotes and multiline</a>
+      </li>
+    </ul>
+  </section>
+
+
+    <section>
+        <h1>Social</h1>
+        <ul>
+            <li><i class="fa-github-alt"></i>&nbsp;<a href="http://github.com/arundhaj" target="_blank">GitHub</a></li>
+            <li><i class="fa-twitter"></i>&nbsp;<a href="https://twitter.com/arundhaj" target="_blank">Twitter</a></li>
+            <li><i class="fa-linkedin"></i>&nbsp;<a href="http://www.linkedin.com/in/arundhaj" target="_blank">LinkedIn</a></li>
+        </ul>
+    </section>
+
+</aside>    </div>
+  </div>
+  <footer role="contentinfo"><p>
+    Copyright &copy;  2007&ndash;2015  ArunDhaJ &mdash;
+  <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
+</p></footer>
+  <script src="http://arundhaj.com/theme/js/modernizr-2.0.js"></script>
+  <script src="http://arundhaj.com/theme/js/ender.js"></script>
+  <script src="http://arundhaj.com/theme/js/octopress.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-31200654-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-31200654-1');
+    ga('send', 'pageview');
+</script>
+  <script type="text/javascript">
+    var disqus_shortname = 'arundhaj';
+    var disqus_identifier = '/blog/spring-hibernate-create-table-if-not-exists.html';
+    var disqus_url = 'http://arundhaj.com/blog/spring-hibernate-create-table-if-not-exists.html';
+    var disqus_title = 'Spring Hibernate - Create table if not exists';
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = "//" + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+  </script>
+</body>
+</html>

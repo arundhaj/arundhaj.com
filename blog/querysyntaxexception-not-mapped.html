@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>QuerySyntaxException: Foo is not mapped &mdash; arundhaj</title>
+  <meta name="author" content="ArunDhaJ">
+  <meta name="description" content="QuerySyntaxException: Foo is not mapped" />
+
+
+
+
+
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link href="http://arundhaj.com/favicon.png" rel="icon">
+
+  <link href="http://arundhaj.com/theme/css/main.css" media="screen, projection"
+        rel="stylesheet" type="text/css">
+
+  <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="http://arundhaj.com/theme/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header role="banner"><hgroup>
+  <h1><a href="http://arundhaj.com/">arundhaj</a></h1>
+    <h2>regression toward the datascience</h2>
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+</ul>
+
+
+<ul class="main-navigation">
+    <li><a href="/">Home</a></li>
+    <li><a href="/archives.html">Archives</a></li>
+    <li><a href="/blog/atom.xml">Feeds</a></li>
+      <li><a href="http://arundhaj.com/pages/about-me.html">About Me</a></li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+<div>
+  <article class="hentry" role="article">
+<header>
+      <h1 class="entry-title">QuerySyntaxException: Foo is not mapped</h1>
+    <p class="meta">
+<i class="fa fa-clock-o"></i>&nbsp;<time datetime="2013-04-18T12:30:00+05:30" pubdate>Thu 18 April 2013</time>    </p>
+</header>
+
+  <div class="entry-content"><p>While writing query using hibernate, I always tend to query based on table name and end up getting <code>QuerySyntaxException</code></p>
+<div class="highlight"><pre><span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">hql</span><span class="o">.</span><span class="na">internal</span><span class="o">.</span><span class="na">ast</span><span class="o">.</span><span class="na">QuerySyntaxException</span><span class="o">:</span> <span class="n">foo</span> <span class="n">is</span> <span class="n">not</span> <span class="n">mapped</span> <span class="o">[</span><span class="n">from</span> <span class="n">foo</span><span class="o">]</span>
+    <span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">hql</span><span class="o">.</span><span class="na">internal</span><span class="o">.</span><span class="na">ast</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">SessionFactoryHelper</span><span class="o">.</span><span class="na">requireClassPersister</span><span class="o">(</span><span class="n">SessionFactoryHelper</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">180</span><span class="o">)</span>
+    <span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">hql</span><span class="o">.</span><span class="na">internal</span><span class="o">.</span><span class="na">ast</span><span class="o">.</span><span class="na">tree</span><span class="o">.</span><span class="na">FromElementFactory</span><span class="o">.</span><span class="na">addFromElement</span><span class="o">(</span><span class="n">FromElementFactory</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">110</span><span class="o">)</span>
+    <span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">hql</span><span class="o">.</span><span class="na">internal</span><span class="o">.</span><span class="na">ast</span><span class="o">.</span><span class="na">tree</span><span class="o">.</span><span class="na">FromClause</span><span class="o">.</span><span class="na">addFromElement</span><span class="o">(</span><span class="n">FromClause</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">93</span><span class="o">)</span>
+    <span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">hql</span><span class="o">.</span><span class="na">internal</span><span class="o">.</span><span class="na">ast</span><span class="o">.</span><span class="na">HqlSqlWalker</span><span class="o">.</span><span class="na">createFromElement</span><span class="o">(</span><span class="n">HqlSqlWalker</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">324</span><span class="o">)</span>
+    <span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">hql</span><span class="o">.</span><span class="na">internal</span><span class="o">.</span><span class="na">antlr</span><span class="o">.</span><span class="na">HqlSqlBaseWalker</span><span class="o">.</span><span class="na">fromElement</span><span class="o">(</span><span class="n">HqlSqlBaseWalker</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">3420</span><span class="o">)</span>
+    <span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">hql</span><span class="o">.</span><span class="na">internal</span><span class="o">.</span><span class="na">antlr</span><span class="o">.</span><span class="na">HqlSqlBaseWalker</span><span class="o">.</span><span class="na">fromElementList</span><span class="o">(</span><span class="n">HqlSqlBaseWalker</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">3309</span><span class="o">)</span>
+    <span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">hql</span><span class="o">.</span><span class="na">internal</span><span class="o">.</span><span class="na">antlr</span><span class="o">.</span><span class="na">HqlSqlBaseWalker</span><span class="o">.</span><span class="na">fromClause</span><span class="o">(</span><span class="n">HqlSqlBaseWalker</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">706</span><span class="o">)</span>
+    <span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">hql</span><span class="o">.</span><span class="na">internal</span><span class="o">.</span><span class="na">antlr</span><span class="o">.</span><span class="na">HqlSqlBaseWalker</span><span class="o">.</span><span class="na">query</span><span class="o">(</span><span class="n">HqlSqlBaseWalker</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">562</span><span class="o">)</span>
+    <span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">hql</span><span class="o">.</span><span class="na">internal</span><span class="o">.</span><span class="na">antlr</span><span class="o">.</span><span class="na">HqlSqlBaseWalker</span><span class="o">.</span><span class="na">selectStatement</span><span class="o">(</span><span class="n">HqlSqlBaseWalker</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">299</span><span class="o">)</span>
+    <span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">hql</span><span class="o">.</span><span class="na">internal</span><span class="o">.</span><span class="na">antlr</span><span class="o">.</span><span class="na">HqlSqlBaseWalker</span><span class="o">.</span><span class="na">statement</span><span class="o">(</span><span class="n">HqlSqlBaseWalker</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">247</span><span class="o">)</span>
+    <span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">hql</span><span class="o">.</span><span class="na">internal</span><span class="o">.</span><span class="na">ast</span><span class="o">.</span><span class="na">QueryTranslatorImpl</span><span class="o">.</span><span class="na">analyze</span><span class="o">(</span><span class="n">QueryTranslatorImpl</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">248</span><span class="o">)</span>
+    <span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">hql</span><span class="o">.</span><span class="na">internal</span><span class="o">.</span><span class="na">ast</span><span class="o">.</span><span class="na">QueryTranslatorImpl</span><span class="o">.</span><span class="na">doCompile</span><span class="o">(</span><span class="n">QueryTranslatorImpl</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">183</span><span class="o">)</span>
+    <span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">hql</span><span class="o">.</span><span class="na">internal</span><span class="o">.</span><span class="na">ast</span><span class="o">.</span><span class="na">QueryTranslatorImpl</span><span class="o">.</span><span class="na">compile</span><span class="o">(</span><span class="n">QueryTranslatorImpl</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">136</span><span class="o">)</span>
+    <span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">engine</span><span class="o">.</span><span class="na">query</span><span class="o">.</span><span class="na">spi</span><span class="o">.</span><span class="na">HQLQueryPlan</span><span class="o">.&lt;</span><span class="n">init</span><span class="o">&gt;(</span><span class="n">HQLQueryPlan</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">105</span><span class="o">)</span>
+    <span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">engine</span><span class="o">.</span><span class="na">query</span><span class="o">.</span><span class="na">spi</span><span class="o">.</span><span class="na">HQLQueryPlan</span><span class="o">.&lt;</span><span class="n">init</span><span class="o">&gt;;(</span><span class="n">HQLQueryPlan</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">80</span><span class="o">)</span>
+    <span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">engine</span><span class="o">.</span><span class="na">query</span><span class="o">.</span><span class="na">spi</span><span class="o">.</span><span class="na">QueryPlanCache</span><span class="o">.</span><span class="na">getHQLQueryPlan</span><span class="o">(</span><span class="n">QueryPlanCache</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">168</span><span class="o">)</span>
+    <span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">internal</span><span class="o">.</span><span class="na">AbstractSessionImpl</span><span class="o">.</span><span class="na">getHQLQueryPlan</span><span class="o">(</span><span class="n">AbstractSessionImpl</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">221</span><span class="o">)</span>
+    <span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">internal</span><span class="o">.</span><span class="na">AbstractSessionImpl</span><span class="o">.</span><span class="na">createQuery</span><span class="o">(</span><span class="n">AbstractSessionImpl</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">199</span><span class="o">)</span>
+    <span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">internal</span><span class="o">.</span><span class="na">SessionImpl</span><span class="o">.</span><span class="na">createQuery</span><span class="o">(</span><span class="n">SessionImpl</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">1740</span><span class="o">)</span>
+    <span class="n">at</span> <span class="n">com</span><span class="o">.</span><span class="na">arundhaj</span><span class="o">.</span><span class="na">bm</span><span class="o">.</span><span class="na">alarms</span><span class="o">.</span><span class="na">AlarmDao</span><span class="o">.</span><span class="na">findAll</span><span class="o">(</span><span class="n">AlarmDao</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">49</span><span class="o">)</span>
+    <span class="n">at</span> <span class="n">sun</span><span class="o">.</span><span class="na">reflect</span><span class="o">.</span><span class="na">NativeMethodAccessorImpl</span><span class="o">.</span><span class="na">invoke0</span><span class="o">(</span><span class="n">Native</span> <span class="n">Method</span><span class="o">)</span>
+    <span class="n">at</span> <span class="n">sun</span><span class="o">.</span><span class="na">reflect</span><span class="o">.</span><span class="na">NativeMethodAccessorImpl</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">NativeMethodAccessorImpl</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">57</span><span class="o">)</span>
+    <span class="n">at</span> <span class="n">sun</span><span class="o">.</span><span class="na">reflect</span><span class="o">.</span><span class="na">DelegatingMethodAccessorImpl</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">DelegatingMethodAccessorImpl</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">43</span><span class="o">)</span>
+    <span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">reflect</span><span class="o">.</span><span class="na">Method</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">Method</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">601</span><span class="o">)</span>
+    <span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">aop</span><span class="o">.</span><span class="na">support</span><span class="o">.</span><span class="na">AopUtils</span><span class="o">.</span><span class="na">invokeJoinpointUsingReflection</span><span class="o">(</span><span class="n">AopUtils</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">317</span><span class="o">)</span>
+    <span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">aop</span><span class="o">.</span><span class="na">framework</span><span class="o">.</span><span class="na">ReflectiveMethodInvocation</span><span class="o">.</span><span class="na">invokeJoinpoint</span><span class="o">(</span><span class="n">ReflectiveMethodInvocation</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">183</span><span class="o">)</span>
+    <span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">aop</span><span class="o">.</span><span class="na">framework</span><span class="o">.</span><span class="na">ReflectiveMethodInvocation</span><span class="o">.</span><span class="na">proceed</span><span class="o">(</span><span class="n">ReflectiveMethodInvocation</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">150</span><span class="o">)</span>
+    <span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">transaction</span><span class="o">.</span><span class="na">interceptor</span><span class="o">.</span><span class="na">TransactionInterceptor$1</span><span class="o">.</span><span class="na">proceedWithInvocation</span><span class="o">(</span><span class="n">TransactionInterceptor</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">96</span><span class="o">)</span>
+    <span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">transaction</span><span class="o">.</span><span class="na">interceptor</span><span class="o">.</span><span class="na">TransactionAspectSupport</span><span class="o">.</span><span class="na">invokeWithinTransaction</span><span class="o">(</span><span class="n">TransactionAspectSupport</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">260</span><span class="o">)</span>
+    <span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">transaction</span><span class="o">.</span><span class="na">interceptor</span><span class="o">.</span><span class="na">TransactionInterceptor</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">TransactionInterceptor</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">94</span><span class="o">)</span>
+    <span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">aop</span><span class="o">.</span><span class="na">framework</span><span class="o">.</span><span class="na">ReflectiveMethodInvocation</span><span class="o">.</span><span class="na">proceed</span><span class="o">(</span><span class="n">ReflectiveMethodInvocation</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">172</span><span class="o">)</span>
+    <span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">aop</span><span class="o">.</span><span class="na">framework</span><span class="o">.</span><span class="na">JdkDynamicAopProxy</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">JdkDynamicAopProxy</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">204</span><span class="o">)</span>
+    <span class="n">at</span> <span class="n">$Proxy14</span><span class="o">.</span><span class="na">findAll</span><span class="o">(</span><span class="n">Unknown</span> <span class="n">Source</span><span class="o">)</span>
+    <span class="n">at</span> <span class="n">com</span><span class="o">.</span><span class="na">arundhaj</span><span class="o">.</span><span class="na">bm</span><span class="o">.</span><span class="na">alarms</span><span class="o">.</span><span class="na">AlarmBo</span><span class="o">.</span><span class="na">findAll</span><span class="o">(</span><span class="n">AlarmBo</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">35</span><span class="o">)</span>
+    <span class="n">at</span> <span class="n">com</span><span class="o">.</span><span class="na">arundhaj</span><span class="o">.</span><span class="na">bm</span><span class="o">.</span><span class="na">Evaluate</span><span class="o">.</span><span class="na">run_db</span><span class="o">(</span><span class="n">Evaluate</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">55</span><span class="o">)</span>
+    <span class="n">at</span> <span class="n">com</span><span class="o">.</span><span class="na">arundhaj</span><span class="o">.</span><span class="na">bm</span><span class="o">.</span><span class="na">App</span><span class="o">.</span><span class="na">main</span><span class="o">(</span><span class="n">App</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">22</span><span class="o">)</span>
+</pre></div>
+
+
+<p>The data access object that actually throwed this exception is</p>
+<div class="highlight"><pre><span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Foo</span><span class="o">&gt;</span> <span class="nf">findAll</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">sessionFactory</span><span class="o">.</span><span class="na">getCurrentSession</span><span class="o">().</span><span class="na">createQuery</span><span class="o">(</span><span class="s">&quot;from foo&quot;</span><span class="o">).</span><span class="na">list</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>The mistake I did in the above snippet is that I have used the table name <code>foo</code> inside createQuery. Instead, I got to use <code>Foo</code>, the actual class name.</p>
+<div class="highlight"><pre><span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Foo</span><span class="o">&gt;</span> <span class="nf">findAll</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">sessionFactory</span><span class="o">.</span><span class="na">getCurrentSession</span><span class="o">().</span><span class="na">createQuery</span><span class="o">(</span><span class="s">&quot;from Foo&quot;</span><span class="o">).</span><span class="na">list</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>Boom!!! Exception resolved.</p></div>
+    <footer>
+<p class="meta">
+<i class="fa fa-clock-o"></i>&nbsp;<time datetime="2013-04-18T12:30:00+05:30" pubdate>Thu 18 April 2013</time>  <i class="fa fa-tags"></i>
+  <span class="categories">
+    <a class="category" href="http://arundhaj.com/tag/technical.html">Technical</a>,    <a class="category" href="http://arundhaj.com/tag/java.html">Java</a>,    <a class="category" href="http://arundhaj.com/tag/j2ee.html">J2EE</a>,    <a class="category" href="http://arundhaj.com/tag/spring.html">Spring</a>,    <a class="category" href="http://arundhaj.com/tag/hibernate.html">Hibernate</a>  </span>
+</p><div class="sharing">
+</div>    </footer>
+  </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+  </section>
+</div>
+<aside class="sidebar">
+  <section>
+    <h1>Recent Posts</h1>
+    <ul id="recent_posts">
+      <li class="post">
+          <a href="http://arundhaj.com/blog/tornado-error-during-websocket-handshake.html">Tornado Error during WebSocket handshake</a>
+      </li>
+      <li class="post">
+          <a href="http://arundhaj.com/blog/binding-port-80-tomcat-ubuntu.html">Binding port 80 to tomcat in Ubuntu</a>
+      </li>
+      <li class="post">
+          <a href="http://arundhaj.com/blog/scikit-decision-tree-with-categorical-data.html">Scikit-learn DecisionTree with categorical data</a>
+      </li>
+      <li class="post">
+          <a href="http://arundhaj.com/blog/building-hadoop-source-code.html">Building Hadoop source code</a>
+      </li>
+      <li class="post">
+          <a href="http://arundhaj.com/blog/pig-script-process-csv-with-quotes-multiline.html">Pig script to process CSV file with quotes and multiline</a>
+      </li>
+    </ul>
+  </section>
+
+
+    <section>
+        <h1>Social</h1>
+        <ul>
+            <li><i class="fa-github-alt"></i>&nbsp;<a href="http://github.com/arundhaj" target="_blank">GitHub</a></li>
+            <li><i class="fa-twitter"></i>&nbsp;<a href="https://twitter.com/arundhaj" target="_blank">Twitter</a></li>
+            <li><i class="fa-linkedin"></i>&nbsp;<a href="http://www.linkedin.com/in/arundhaj" target="_blank">LinkedIn</a></li>
+        </ul>
+    </section>
+
+</aside>    </div>
+  </div>
+  <footer role="contentinfo"><p>
+    Copyright &copy;  2007&ndash;2015  ArunDhaJ &mdash;
+  <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
+</p></footer>
+  <script src="http://arundhaj.com/theme/js/modernizr-2.0.js"></script>
+  <script src="http://arundhaj.com/theme/js/ender.js"></script>
+  <script src="http://arundhaj.com/theme/js/octopress.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-31200654-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-31200654-1');
+    ga('send', 'pageview');
+</script>
+  <script type="text/javascript">
+    var disqus_shortname = 'arundhaj';
+    var disqus_identifier = '/blog/querysyntaxexception-not-mapped.html';
+    var disqus_url = 'http://arundhaj.com/blog/querysyntaxexception-not-mapped.html';
+    var disqus_title = 'QuerySyntaxException: Foo is not mapped';
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = "//" + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+  </script>
+</body>
+</html>

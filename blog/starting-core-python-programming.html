@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Starting Core Python Programming Book &mdash; arundhaj</title>
+  <meta name="author" content="ArunDhaJ">
+  <meta name="description" content="Starting Core Python Programming Book" />
+
+
+
+
+
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link href="http://arundhaj.com/favicon.png" rel="icon">
+
+  <link href="http://arundhaj.com/theme/css/main.css" media="screen, projection"
+        rel="stylesheet" type="text/css">
+
+  <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="http://arundhaj.com/theme/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header role="banner"><hgroup>
+  <h1><a href="http://arundhaj.com/">arundhaj</a></h1>
+    <h2>regression toward the datascience</h2>
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+</ul>
+
+
+<ul class="main-navigation">
+    <li><a href="/">Home</a></li>
+    <li><a href="/archives.html">Archives</a></li>
+    <li><a href="/blog/atom.xml">Feeds</a></li>
+      <li><a href="http://arundhaj.com/pages/about-me.html">About Me</a></li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+<div>
+  <article class="hentry" role="article">
+<header>
+      <h1 class="entry-title">Starting Core Python Programming Book</h1>
+    <p class="meta">
+<i class="fa fa-clock-o"></i>&nbsp;<time datetime="2014-03-18T10:00:00+05:30" pubdate>Tue 18 March 2014</time>    </p>
+</header>
+
+  <div class="entry-content"><p>I'm starting to read the <a href="http://corepython.com">Core Python Programming</a> book. Over past few months I've already started to program in python, like developing web apps with <a href="https://www.djangoproject.com">django</a> and data analytics with <a href="http://pandas.pydata.org">pandas</a>. I started to like the language, so wanted to go back to the basics of it and I'm begining with this book. I've already used C, C++, Java, C# and JavaScript, now I'm excited to add python to the list.</p>
+<p>I wanted to attempt to blog as I read the book, and obviously the first blog is reserved for "The Zen of Python" by Tim Peters as stated in <a href="http://legacy.python.org/dev/peps/pep-0020">PEP 20</a>.</p>
+<div class="highlight"><pre><span class="n">Beautiful</span> <span class="ow">is</span> <span class="n">better</span> <span class="n">than</span> <span class="n">ugly</span><span class="p">.</span>
+<span class="n">Explicit</span> <span class="ow">is</span> <span class="n">better</span> <span class="n">than</span> <span class="n">implicit</span><span class="p">.</span>
+<span class="n">Simple</span> <span class="ow">is</span> <span class="n">better</span> <span class="n">than</span> <span class="n">complex</span><span class="p">.</span>
+<span class="n">Complex</span> <span class="ow">is</span> <span class="n">better</span> <span class="n">than</span> <span class="n">complicated</span><span class="p">.</span>
+<span class="n">Flat</span> <span class="ow">is</span> <span class="n">better</span> <span class="n">than</span> <span class="n">nested</span><span class="p">.</span>
+<span class="n">Sparse</span> <span class="ow">is</span> <span class="n">better</span> <span class="n">than</span> <span class="n">dense</span><span class="p">.</span>
+<span class="n">Readability</span> <span class="n">counts</span><span class="p">.</span>
+<span class="n">Special</span> <span class="n">cases</span> <span class="n">aren</span><span class="c">&#39;t special enough to break the rules.</span>
+<span class="n">Although</span> <span class="n">practicality</span> <span class="n">beats</span> <span class="n">purity</span><span class="p">.</span>
+<span class="n">Errors</span> <span class="n">should</span> <span class="n">never</span> <span class="n">pass</span> <span class="n">silently</span><span class="p">.</span>
+<span class="n">Unless</span> <span class="n">explicitly</span> <span class="n">silenced</span><span class="p">.</span>
+<span class="ow">In</span> <span class="n">the</span> <span class="n">face</span> <span class="k">of</span> <span class="n">ambiguity</span><span class="p">,</span> <span class="n">refuse</span> <span class="n">the</span> <span class="n">temptation</span> <span class="k">to</span> <span class="n">guess</span><span class="p">.</span>
+<span class="n">There</span> <span class="n">should</span> <span class="n">be</span> <span class="n">one</span><span class="o">--</span> <span class="ow">and</span> <span class="n">preferably</span> <span class="n">only</span> <span class="n">one</span> <span class="o">--</span><span class="n">obvious</span> <span class="n">way</span> <span class="k">to</span> <span class="k">do</span> <span class="n">it</span><span class="p">.</span>
+<span class="n">Although</span> <span class="n">that</span> <span class="n">way</span> <span class="n">may</span> <span class="k">not</span> <span class="n">be</span> <span class="n">obvious</span> <span class="n">at</span> <span class="n">first</span> <span class="n">unless</span> <span class="n">you</span><span class="c">&#39;re Dutch.</span>
+<span class="n">Now</span> <span class="ow">is</span> <span class="n">better</span> <span class="n">than</span> <span class="n">never</span><span class="p">.</span>
+<span class="n">Although</span> <span class="n">never</span> <span class="ow">is</span> <span class="n">often</span> <span class="n">better</span> <span class="n">than</span> <span class="o">*</span><span class="n">right</span><span class="o">*</span> <span class="n">now</span><span class="p">.</span>
+<span class="k">If</span> <span class="n">the</span> <span class="n">implementation</span> <span class="ow">is</span> <span class="n">hard</span> <span class="k">to</span> <span class="n">explain</span><span class="p">,</span> <span class="n">it</span><span class="c">&#39;s a bad idea.</span>
+<span class="k">If</span> <span class="n">the</span> <span class="n">implementation</span> <span class="ow">is</span> <span class="n">easy</span> <span class="k">to</span> <span class="n">explain</span><span class="p">,</span> <span class="n">it</span> <span class="n">may</span> <span class="n">be</span> <span class="n">a</span> <span class="n">good</span> <span class="n">idea</span><span class="p">.</span>
+<span class="n">Namespaces</span> <span class="n">are</span> <span class="n">one</span> <span class="n">honking</span> <span class="n">great</span> <span class="n">idea</span> <span class="o">--</span> <span class="k">let</span><span class="c">&#39;s do more of those!</span>
+</pre></div></div>
+    <footer>
+<p class="meta">
+<i class="fa fa-clock-o"></i>&nbsp;<time datetime="2014-03-18T10:00:00+05:30" pubdate>Tue 18 March 2014</time>  <i class="fa fa-tags"></i>
+  <span class="categories">
+    <a class="category" href="http://arundhaj.com/tag/technical.html">Technical</a>,    <a class="category" href="http://arundhaj.com/tag/python.html">Python</a>  </span>
+</p><div class="sharing">
+</div>    </footer>
+  </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+  </section>
+</div>
+<aside class="sidebar">
+  <section>
+    <h1>Recent Posts</h1>
+    <ul id="recent_posts">
+      <li class="post">
+          <a href="http://arundhaj.com/blog/tornado-error-during-websocket-handshake.html">Tornado Error during WebSocket handshake</a>
+      </li>
+      <li class="post">
+          <a href="http://arundhaj.com/blog/binding-port-80-tomcat-ubuntu.html">Binding port 80 to tomcat in Ubuntu</a>
+      </li>
+      <li class="post">
+          <a href="http://arundhaj.com/blog/scikit-decision-tree-with-categorical-data.html">Scikit-learn DecisionTree with categorical data</a>
+      </li>
+      <li class="post">
+          <a href="http://arundhaj.com/blog/building-hadoop-source-code.html">Building Hadoop source code</a>
+      </li>
+      <li class="post">
+          <a href="http://arundhaj.com/blog/pig-script-process-csv-with-quotes-multiline.html">Pig script to process CSV file with quotes and multiline</a>
+      </li>
+    </ul>
+  </section>
+
+
+    <section>
+        <h1>Social</h1>
+        <ul>
+            <li><i class="fa-github-alt"></i>&nbsp;<a href="http://github.com/arundhaj" target="_blank">GitHub</a></li>
+            <li><i class="fa-twitter"></i>&nbsp;<a href="https://twitter.com/arundhaj" target="_blank">Twitter</a></li>
+            <li><i class="fa-linkedin"></i>&nbsp;<a href="http://www.linkedin.com/in/arundhaj" target="_blank">LinkedIn</a></li>
+        </ul>
+    </section>
+
+</aside>    </div>
+  </div>
+  <footer role="contentinfo"><p>
+    Copyright &copy;  2007&ndash;2015  ArunDhaJ &mdash;
+  <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
+</p></footer>
+  <script src="http://arundhaj.com/theme/js/modernizr-2.0.js"></script>
+  <script src="http://arundhaj.com/theme/js/ender.js"></script>
+  <script src="http://arundhaj.com/theme/js/octopress.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-31200654-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-31200654-1');
+    ga('send', 'pageview');
+</script>
+  <script type="text/javascript">
+    var disqus_shortname = 'arundhaj';
+    var disqus_identifier = '/blog/starting-core-python-programming.html';
+    var disqus_url = 'http://arundhaj.com/blog/starting-core-python-programming.html';
+    var disqus_title = 'Starting Core Python Programming Book';
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = "//" + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+  </script>
+</body>
+</html>

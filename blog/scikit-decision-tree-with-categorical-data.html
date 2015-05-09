@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Scikit-learn DecisionTree with categorical data &mdash; arundhaj</title>
+  <meta name="author" content="ArunDhaJ">
+  <meta name="description" content="Building DecisionTree classifier for categorical data with scikit-learn" />
+
+
+
+
+
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link href="http://arundhaj.com/favicon.png" rel="icon">
+
+  <link href="http://arundhaj.com/theme/css/main.css" media="screen, projection"
+        rel="stylesheet" type="text/css">
+
+  <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="http://arundhaj.com/theme/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header role="banner"><hgroup>
+  <h1><a href="http://arundhaj.com/">arundhaj</a></h1>
+    <h2>regression toward the datascience</h2>
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+</ul>
+
+
+<ul class="main-navigation">
+    <li><a href="/">Home</a></li>
+    <li><a href="/archives.html">Archives</a></li>
+    <li><a href="/blog/atom.xml">Feeds</a></li>
+      <li><a href="http://arundhaj.com/pages/about-me.html">About Me</a></li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+<div>
+  <article class="hentry" role="article">
+<header>
+      <h1 class="entry-title">Scikit-learn DecisionTree with categorical data</h1>
+    <p class="meta">
+<i class="fa fa-clock-o"></i>&nbsp;<time datetime="2015-03-22T18:00:00+05:30" pubdate>Sun 22 March 2015</time>    </p>
+</header>
+
+  <div class="entry-content"><p>In this post, I'll walk through scikit-learn's <a href="http://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html#sklearn.tree.DecisionTreeClassifier">DecisionTreeClassifier</a> from loading the data, fitting the model and prediction.</p>
+<p>I'm going to use the <a href="https://github.com/arundhaj/datamining_class/blob/master/data/vertebrate.csv">vertebrate</a> dataset from the book <a href="http://www-users.cs.umn.edu/~kumar/dmbook/index.php">Introduction to Data Mining</a> by Tan, Steinbach and Kumar. </p>
+<p>We need to predict the class label of the last record from the dataset.</p>
+<p>As you see the data is categorical. We need to vectorize the features so that, we can feed to the classifier. And it is done as follows.</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">sklearn.feature_extraction</span> <span class="kn">import</span> <span class="n">DictVectorizer</span>
+
+<span class="n">X_dict</span> <span class="o">=</span> <span class="n">X_feature</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+
+<span class="n">vect</span> <span class="o">=</span> <span class="n">DictVectorizer</span><span class="p">(</span><span class="n">sparse</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">X_vector</span> <span class="o">=</span> <span class="n">vect</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_dict</span><span class="p">)</span>
+</pre></div>
+
+
+<p>On converting the pandas DataFrame <code>X_feature</code> to python dictionary <code>X_dict</code>. </p>
+<p><code>X_dict</code> looks like;</p>
+<div class="highlight"><pre><span class="p">[{</span><span class="s">&#39;Aerial Creature&#39;</span><span class="p">:</span> <span class="s">&#39;no&#39;</span><span class="p">,</span>
+  <span class="s">&#39;Aquatic Creature&#39;</span><span class="p">:</span> <span class="s">&#39;no&#39;</span><span class="p">,</span>
+  <span class="s">&#39;Body Temperature&#39;</span><span class="p">:</span> <span class="s">&#39;warm-blooded&#39;</span><span class="p">,</span>
+  <span class="s">&#39;Gives Birth&#39;</span><span class="p">:</span> <span class="s">&#39;yes&#39;</span><span class="p">,</span>
+  <span class="s">&#39;Has Legs&#39;</span><span class="p">:</span> <span class="s">&#39;yes&#39;</span><span class="p">,</span>
+  <span class="s">&#39;Hibernates&#39;</span><span class="p">:</span> <span class="s">&#39;no&#39;</span><span class="p">,</span>
+  <span class="s">&#39;Skin Cover&#39;</span><span class="p">:</span> <span class="s">&#39;hair&#39;</span><span class="p">},</span>
+  <span class="o">...</span>
+<span class="p">]</span>
+</pre></div>
+
+
+<p>Then to vector <code>X_vector</code></p>
+<div class="highlight"><pre><span class="o">[[</span> 1.,  0.,  1.,  0.,  0.,  0.,  1.,  0.,  1.,  0.,  1.,  1.,  0.,
+         0.,  0.,  1.,  0.,  0.,  0.<span class="o">]</span>,
+    ...
+<span class="o">]</span>
+</pre></div>
+
+
+<p>The vectorizer matrix contains features in the following format.</p>
+<div class="highlight"><pre><span class="o">[</span><span class="s1">&#39;Aerial Creature=no&#39;</span>,
+ <span class="s1">&#39;Aerial Creature=yes&#39;</span>,
+ <span class="s1">&#39;Aquatic Creature=no&#39;</span>,
+ <span class="s1">&#39;Aquatic Creature=semi&#39;</span>,
+ <span class="s1">&#39;Aquatic Creature=yes&#39;</span>,
+ <span class="s1">&#39;Body Temperature=cold-blooded&#39;</span>,
+ <span class="s1">&#39;Body Temperature=warm-blooded&#39;</span>,
+ <span class="s1">&#39;Gives Birth=no&#39;</span>,
+ <span class="s1">&#39;Gives Birth=yes&#39;</span>,
+ <span class="s1">&#39;Has Legs=no&#39;</span>,
+ <span class="s1">&#39;Has Legs=yes&#39;</span>,
+ <span class="s1">&#39;Hibernates=no&#39;</span>,
+ <span class="s1">&#39;Hibernates=yes&#39;</span>,
+ <span class="s1">&#39;Skin Cover=feathers&#39;</span>,
+ <span class="s1">&#39;Skin Cover=fur&#39;</span>,
+ <span class="s1">&#39;Skin Cover=hair&#39;</span>,
+ <span class="s1">&#39;Skin Cover=none&#39;</span>,
+ <span class="s1">&#39;Skin Cover=quills&#39;</span>,
+ <span class="s1">&#39;Skin Cover=scales&#39;</span><span class="o">]</span>
+</pre></div>
+
+
+<p>For vectorizing the class labels</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelEncoder</span>
+
+<span class="n">le</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;Class Label&#39;</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+
+
+<p>With the X and y vectorized, we can now use the <code>DecisionTreeClassifier</code> for fitting the model and to do prediction.</p>
+<p>Find the ipython notebook <a href="http://nbviewer.ipython.org/github/arundhaj/datamining_class/blob/master/decision_tree.ipynb">here</a></p></div>
+    <footer>
+<p class="meta">
+<i class="fa fa-clock-o"></i>&nbsp;<time datetime="2015-03-22T18:00:00+05:30" pubdate>Sun 22 March 2015</time>  <i class="fa fa-tags"></i>
+  <span class="categories">
+    <a class="category" href="http://arundhaj.com/tag/technical.html">Technical</a>,    <a class="category" href="http://arundhaj.com/tag/python.html">Python</a>,    <a class="category" href="http://arundhaj.com/tag/pandas.html">Pandas</a>  </span>
+</p><div class="sharing">
+</div>    </footer>
+  </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+  </section>
+</div>
+<aside class="sidebar">
+  <section>
+    <h1>Recent Posts</h1>
+    <ul id="recent_posts">
+      <li class="post">
+          <a href="http://arundhaj.com/blog/tornado-error-during-websocket-handshake.html">Tornado Error during WebSocket handshake</a>
+      </li>
+      <li class="post">
+          <a href="http://arundhaj.com/blog/binding-port-80-tomcat-ubuntu.html">Binding port 80 to tomcat in Ubuntu</a>
+      </li>
+      <li class="post">
+          <a href="http://arundhaj.com/blog/scikit-decision-tree-with-categorical-data.html">Scikit-learn DecisionTree with categorical data</a>
+      </li>
+      <li class="post">
+          <a href="http://arundhaj.com/blog/building-hadoop-source-code.html">Building Hadoop source code</a>
+      </li>
+      <li class="post">
+          <a href="http://arundhaj.com/blog/pig-script-process-csv-with-quotes-multiline.html">Pig script to process CSV file with quotes and multiline</a>
+      </li>
+    </ul>
+  </section>
+
+
+    <section>
+        <h1>Social</h1>
+        <ul>
+            <li><i class="fa-github-alt"></i>&nbsp;<a href="http://github.com/arundhaj" target="_blank">GitHub</a></li>
+            <li><i class="fa-twitter"></i>&nbsp;<a href="https://twitter.com/arundhaj" target="_blank">Twitter</a></li>
+            <li><i class="fa-linkedin"></i>&nbsp;<a href="http://www.linkedin.com/in/arundhaj" target="_blank">LinkedIn</a></li>
+        </ul>
+    </section>
+
+</aside>    </div>
+  </div>
+  <footer role="contentinfo"><p>
+    Copyright &copy;  2007&ndash;2015  ArunDhaJ &mdash;
+  <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
+</p></footer>
+  <script src="http://arundhaj.com/theme/js/modernizr-2.0.js"></script>
+  <script src="http://arundhaj.com/theme/js/ender.js"></script>
+  <script src="http://arundhaj.com/theme/js/octopress.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-31200654-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-31200654-1');
+    ga('send', 'pageview');
+</script>
+  <script type="text/javascript">
+    var disqus_shortname = 'arundhaj';
+    var disqus_identifier = '/blog/scikit-decision-tree-with-categorical-data.html';
+    var disqus_url = 'http://arundhaj.com/blog/scikit-decision-tree-with-categorical-data.html';
+    var disqus_title = 'Scikit-learn DecisionTree with categorical data';
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = "//" + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+  </script>
+</body>
+</html>
